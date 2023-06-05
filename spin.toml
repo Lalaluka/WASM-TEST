@@ -1,0 +1,20 @@
+spin_manifest_version = "1"
+authors = ["calvin.schroeder <calvin.schroeder@telekom.de>"]
+description = "Hello World"
+name = "HelloWorld"
+trigger = { type = "http", base = "/" }
+version = "0.1.0"
+
+[[component]]
+id = "hello-world"
+source = "app2.wasm"
+[component.trigger]
+route = "/"
+
+[[component]]
+id = "Hello2"
+source = "app.wasm"
+[component.trigger]
+route = "/2"
+[component.build]
+command = "spin py2wasm app -o app.wasm" 
